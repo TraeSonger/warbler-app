@@ -1,11 +1,11 @@
 import os
 
-from flask import Flask, render_template, request, flash, redirect, session, g
+from flask import Flask, flash, g, redirect, render_template, request, session
 from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError
 
-from forms import UserAddForm, LoginForm, MessageForm
-from models import db, connect_db, User, Message
+from forms import LoginForm, MessageForm, UserAddForm
+from models import Message, User, connect_db, db
 
 CURR_USER_KEY = "curr_user"
 
