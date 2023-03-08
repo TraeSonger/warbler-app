@@ -112,8 +112,9 @@ def login():
 @app.route('/logout')
 def logout():
     """Handle logout of user."""
-
-    # IMPLEMENT THIS
+    form = LoginForm()
+    flash("You have successfully signed out", 'danger')
+    return redirect("/login")
 
 
 ##############################################################################
@@ -139,6 +140,9 @@ def list_users():
 @app.route('/users/<int:user_id>')
 def users_show(user_id):
     """Show user profile."""
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
 
     user = User.query.get_or_404(user_id)
 
