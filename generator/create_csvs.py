@@ -14,7 +14,8 @@ from helpers import get_random_datetime
 
 MAX_WARBLER_LENGTH = 140
 
-USERS_CSV_HEADERS = ['email', 'username', 'image_url', 'password', 'bio', 'header_image_url', 'location']
+USERS_CSV_HEADERS = ['email', 'username', 'image_url',
+                     'password', 'bio', 'header_image_url', 'location']
 MESSAGES_CSV_HEADERS = ['text', 'timestamp', 'user_id']
 FOLLOWS_CSV_HEADERS = ['user_being_followed_id', 'user_following_id']
 
@@ -55,7 +56,8 @@ with open('generator/users.csv', 'w') as users_csv:
         ))
 
 with open('generator/messages.csv', 'w') as messages_csv:
-    messages_writer = csv.DictWriter(messages_csv, fieldnames=MESSAGES_CSV_HEADERS)
+    messages_writer = csv.DictWriter(
+        messages_csv, fieldnames=MESSAGES_CSV_HEADERS)
     messages_writer.writeheader()
 
     for i in range(NUM_MESSAGES):
@@ -74,4 +76,5 @@ with open('generator/follows.csv', 'w') as follows_csv:
     users_writer.writeheader()
 
     for followed_user, follower in sample(all_pairs, NUM_FOLLWERS):
-        users_writer.writerow(dict(user_being_followed_id=followed_user, user_following_id=follower))
+        users_writer.writerow(
+            dict(user_being_followed_id=followed_user, user_following_id=follower))

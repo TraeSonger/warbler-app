@@ -2,7 +2,6 @@
 <div class="col-sm-6">
   <ul class="list-group" id="messages">
     {% for message in messages %}
-
     <li class="list-group-item">
       <a href="/messages/{{ message.id }}" class="message-link" />
 
@@ -22,7 +21,6 @@
         <p>{{ message.text }}</p>
       </div>
     </li>
-
     {% endfor %}
   </ul>
 </div>
