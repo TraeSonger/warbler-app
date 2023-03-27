@@ -353,7 +353,6 @@ def homepage():
     - anon users: no messages
     - logged in: 100 most recent messages of followed_users
     """
-
     if g.user:
         following_ids = [f.id for f in g.user.following] + [g.user.id]
         messages = (Message
